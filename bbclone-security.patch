@@ -1,0 +1,11 @@
+--- bbclone/conf/config.php	2005-03-13 18:33:01.000000000 +0100
++++ bbclone/conf/config.new	2005-03-17 19:36:29.761977136 +0100
+@@ -37,7 +37,7 @@
+ // Syntax:
+ // $BBC_SHOW_CONFIG = 1;      => Display show_config.php (default)
+ // $BBC_SHOW_CONFIG = "";     => Don't display show_config.php
+-$BBC_SHOW_CONFIG = 1;
++$BBC_SHOW_CONFIG = "";
+ 
+ // The title being displayed in the navigation bar of all bbclone pages.
+ // The following macros are recognised:

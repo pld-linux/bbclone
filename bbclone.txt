@@ -1,0 +1,29 @@
+Simple example
+----------------
+
+You must add to top of your files:
+
+<?php
+ define("_BBC_PAGE_NAME", $title);                                                                             
+ define("_BBCLONE_DIR", "/usr/share/bbclone/");                                                                
+ define("COUNTER", _BBCLONE_DIR."mark_page.php");                                                              
+ if (is_readable(COUNTER)) include_once(COUNTER);
+?>
+where $title is uniqued name for pages
+
+We can use "access.php" as regular inclusion for other documents as well,
+if we specify the path to it. The following example demostrates,
+how we could display the total amount of visits:
+
+<?php                                                                                                          
+//------ Display Total Unique ----------------------                                                           
+require("/usr/share/bbclone/var/access.php");                                                                  
+$totalvisits   = $access["stat"]["totalvisits"];                                                               
+$totalcount    = $access["stat"]["totalcount"];                                                                
+$visitorsmonth = $access["time"]["month"][date("n")-1];                                                        
+$visitorstoday = $access["time"]["wday"][date("w")];
+$wday          = $access["time"]["wday"];
+
+echo "Total Visits&nbsp;&nbsp;".$totalcount."<br />";
+echo "Visitors Today&nbsp;&nbsp;".$visitorstoday."<br />";
+?>
