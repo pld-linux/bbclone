@@ -1,5 +1,5 @@
 Summary:	BBClone - A PHP based Web Counter on Steroids
-Summary(pl):	BBClone - bazowany na PHP licznik stron WWW
+Summary(pl):	BBClone - oparty na PHP licznik stron WWW
 Name:		bbclone
 Version:	0.4.7
 Release:	0.1
@@ -41,12 +41,37 @@ For each visitor, BBClone can display:
 * referring URL (where do they come from),
 * visit date,
 * number of time the visitor has loaded the page,
-* number of visitor
-* the visited pages in the order someone viewed them
-* the last visited page
-* the search engine query that lead to your site (if applicable)
+* number of visitor,
+* the visited pages in the order someone viewed them,
+* the last visited page,
+* the search engine query that lead to your site (if applicable),
 * ranking of the most frequent countries, referrers, OS, browsers,
-robots, page views and hostnames
+robots, page views and hostnames.
+
+%description -l pl
+BBclone to licznik WWW napisany w PHP. Udostêpnia szczegó³owy widok
+odwiedzaj±cych stronê WWW wy¶wietlaj±c n-tych ostatnich u¿ytkowników
+(oraz dostarczone przez nich dane, takie jak adres IP, przegl±darkê
+itd.), którzy odwiedzili stronê, a nie tylko pokazuj±c liczbê go¶ci.
+Jest to bardzo przydatne dla webmasterów, którzy chc± widzieæ, kto
+odwiedza ich strony, jakich przegl±darek u¿ywaj±, sk±d pochodz± itp.
+
+Dla ka¿dego odwiedzaj±cego BBClone mo¿e wy¶wietlaæ:
+- adres IP,
+- nazwê hosta,
+- system operacyjny,
+- roboty,
+- przegl±darkê,
+- URL odniesienia (sk±d wyst±pi³o odwo³anie),
+- datê odwiedzin,
+- czas potrzebny na za³adowanie strony,
+- numer go¶cia,
+- odwiedzone strony w kolejno¶ci ich ogl±dania,
+- ostatni± odwiedzon± stronê,
+- zapytanie silnika wyszukuj±cego, które zaprowadzi³o na stronê (je¶li
+  dotyczy ¿±dania),
+- ranking najczê¶ciej wystêpuj±cych krajów, odniesieñ, systemów
+  operacyjnych, przegl±darek, robotów, stron i nazw hostów.
 
 %prep
 %setup -q -n %{name}
@@ -116,8 +141,9 @@ fi
 %defattr(644,root,root,755)
 %doc doc/*
 %attr(750,root,http) %dir %{_sysconfdir}
-%attr(640,root,root) %config(noreplace) %{_sysconfdir}/apache-%{name}.conf
-%attr(640,root,http) %config(noreplace) %{_sysconfdir}/config.php
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache-%{name}.conf
+%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/config.php
+%dir %{_vardir}/%{name}
 %attr(660,root,http) %{_vardir}/%{name}/*.php
 %attr(660,root,http) %{_vardir}/%{name}/*.inc
 %attr(660,root,http) %{_vardir}/%{name}/.htalock
