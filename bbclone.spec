@@ -7,13 +7,13 @@ License:	GPL 2
 Group:		Applications/WWW
 Source0:	http://www.bbclone.de/download.php?get=%{name}-%{version}.tar.gz
 # Source0-md5:	cc4141767818e75950f1dd5a56ec1201
-Source1:        %{name}.conf
-Source2:        %{name}.txt
-Patch0:         %{name}-security.patch
+Source1:	%{name}.conf
+Source2:	%{name}.txt
+Patch0:		%{name}-security.patch
 URL:		http://www.bbclone.de/
-Requires:       apache >= 1.3.33-2
-Requires:       apache(mod_access)
-Requires:       apache(mod_alias)
+Requires:	apache >= 1.3.33-2
+Requires:	apache(mod_access)
+Requires:	apache(mod_alias)
 Requires:	php >= 4.1.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -104,20 +104,20 @@ install %{SOURCE2}                 $RPM_BUILD_ROOT%{_appdir}/example.txt
 rm -rf $RPM_BUILD_ROOT
 
 %post
-	# apache1
-	if [ -d %{_apache1dir}/conf.d ]; then
-	        ln -sf %{_sysconfdir}/apache-%{name}.conf %{_apache1dir}/conf.d/99_%{name}.conf
-	        if [ -f /var/lock/subsys/apache ]; then
-	                /etc/rc.d/init.d/apache restart 1>&2
-	        fi
+# apache1
+if [ -d %{_apache1dir}/conf.d ]; then
+	ln -sf %{_sysconfdir}/apache-%{name}.conf %{_apache1dir}/conf.d/99_%{name}.conf
+	if [ -f /var/lock/subsys/apache ]; then
+		/etc/rc.d/init.d/apache restart 1>&2
 	fi
-	# apache2
-	if [ -d %{_apache2dir}/httpd.conf ]; then
-	        ln -sf %{_sysconfdir}/apache-%{name}.conf %{_apache2dir}/httpd.conf/99_%{name}.conf
-	        if [ -f /var/lock/subsys/httpd ]; then
-                /etc/rc.d/init.d/httpd restart 1>&2
-	        fi
+fi
+# apache2
+if [ -d %{_apache2dir}/httpd.conf ]; then
+	ln -sf %{_sysconfdir}/apache-%{name}.conf %{_apache2dir}/httpd.conf/99_%{name}.conf
+	if [ -f /var/lock/subsys/httpd ]; then
+		/etc/rc.d/init.d/httpd restart 1>&2
 	fi
+fi
 
 %postun
 if [ "$1" = "0" ]; then
