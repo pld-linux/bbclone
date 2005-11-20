@@ -11,18 +11,18 @@ Source1:	%{name}.conf
 Source2:	%{name}.txt
 Patch0:		%{name}-security.patch
 URL:		http://www.bbclone.de/
-Requires:	apache >= 1.3.33-2
+BuildRequires:	rpmbuild(macros) >= 1.226
+Requires:	webserver = apache
 Requires:	apache(mod_access)
 Requires:	apache(mod_alias)
-Requires:	php >= 4.1.0
+Requires:	php >= 3:4.1.0
+Conflicts:	apache < 1.3.33-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_appdir		/usr/share/bbclone
 %define		_sysconfdir	/etc/bbclone
 %define		_vardir		/var/lib
-%define		_apache1dir	/etc/apache
-%define		_apache2dir	/etc/httpd
 
 %description
 BBclone is a web counter written in PHP and gives a detailed view
@@ -103,39 +103,17 @@ install %{SOURCE2}                 $RPM_BUILD_ROOT%{_appdir}/example.txt
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-# apache1
-if [ -d %{_apache1dir}/conf.d ]; then
-	ln -sf %{_sysconfdir}/apache-%{name}.conf %{_apache1dir}/conf.d/99_%{name}.conf
-	if [ -f /var/lock/subsys/apache ]; then
-		/etc/rc.d/init.d/apache restart 1>&2
-	fi
-fi
-# apache2
-if [ -d %{_apache2dir}/httpd.conf ]; then
-	ln -sf %{_sysconfdir}/apache-%{name}.conf %{_apache2dir}/httpd.conf/99_%{name}.conf
-	if [ -f /var/lock/subsys/httpd ]; then
-		/etc/rc.d/init.d/httpd restart 1>&2
-	fi
-fi
+%triggerin -- apache1 >= 1.3.33-2
+%apache_config_install -v 1 -c %{_sysconfdir}/apache-%{name}.conf
 
-%postun
-if [ "$1" = "0" ]; then
-	# apache1
-	if [ -d %{_apache1dir}/conf.d ]; then
-		rm -f %{_apache1dir}/conf.d/99_%{name}.conf
-		if [ -f /var/lock/subsys/apache ]; then
-			/etc/rc.d/init.d/apache restart 1>&2
-		fi
-	fi
-	# apache2
-	if [ -d %{_apache2dir}/httpd.conf ]; then
-		rm -f %{_apache2dir}/httpd.conf/99_%{name}.conf
-		if [ -f /var/lock/subsys/httpd ]; then
-			/etc/rc.d/init.d/httpd restart 1>&2
-		fi
-	fi
-fi
+%triggerun -- apache1 >= 1.3.33-2
+%apache_config_uninstall -v 1
+
+%triggerin -- apache >= 2.0.0
+%apache_config_install -v 2 -c %{_sysconfdir}/apache-%{name}.conf
+
+%triggerun -- apache >= 2.0.0
+%apache_config_uninstall -v 2
 
 %files
 %defattr(644,root,root,755)
