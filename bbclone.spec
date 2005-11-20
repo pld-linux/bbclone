@@ -16,7 +16,7 @@ Requires:	webserver = apache
 Requires:	apache(mod_access)
 Requires:	apache(mod_alias)
 Requires:	php >= 3:4.1.0
-Conflicts:	apache < 1.3.33-2
+Conflicts:	apache1 < 1.3.33-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
