@@ -83,22 +83,22 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir} \
 	$RPM_BUILD_ROOT%{_vardir}/%{name} \
 	$RPM_BUILD_ROOT%{_appdir}/{doc,images,ip2ext,language,lib}
 
-cp -pR	*.php                      $RPM_BUILD_ROOT%{_appdir}
+cp -pR	*.php			$RPM_BUILD_ROOT%{_appdir}
 
-cp -pR  images/*                   $RPM_BUILD_ROOT%{_appdir}/images
-cp -pR  ip2ext/*                   $RPM_BUILD_ROOT%{_appdir}/ip2ext
-cp -pR  language/*                 $RPM_BUILD_ROOT%{_appdir}/language
-cp -pR  lib/*                      $RPM_BUILD_ROOT%{_appdir}/lib
+cp -pR	images/*		$RPM_BUILD_ROOT%{_appdir}/images
+cp -pR	ip2ext/*		$RPM_BUILD_ROOT%{_appdir}/ip2ext
+cp -pR	language/*		$RPM_BUILD_ROOT%{_appdir}/language
+cp -pR	lib/*			$RPM_BUILD_ROOT%{_appdir}/lib
 
-cp -pR	conf/*                     $RPM_BUILD_ROOT%{_sysconfdir}
-cp -pR	var/*                      $RPM_BUILD_ROOT%{_vardir}/%{name}
-cp -pR	var/.htalock               $RPM_BUILD_ROOT%{_vardir}/%{name}
+cp -pR	conf/*			$RPM_BUILD_ROOT%{_sysconfdir}
+cp -pR	var/*			$RPM_BUILD_ROOT%{_vardir}/%{name}
+cp -pR	var/.htalock		$RPM_BUILD_ROOT%{_vardir}/%{name}
 
-ln -s %{_sysconfdir}               $RPM_BUILD_ROOT%{_appdir}/conf
-ln -s %{_vardir}/%{name}           $RPM_BUILD_ROOT%{_appdir}/var
+ln -s %{_sysconfdir}		$RPM_BUILD_ROOT%{_appdir}/conf
+ln -s %{_vardir}/%{name}	$RPM_BUILD_ROOT%{_appdir}/var
 
-install %{SOURCE1}                 $RPM_BUILD_ROOT%{_sysconfdir}/apache-%{name}.conf
-install %{SOURCE2}                 $RPM_BUILD_ROOT%{_appdir}/example.txt
+install %{SOURCE1}		$RPM_BUILD_ROOT%{_sysconfdir}/apache-%{name}.conf
+install %{SOURCE2}		$RPM_BUILD_ROOT%{_appdir}/example.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
