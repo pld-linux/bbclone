@@ -2,7 +2,7 @@ Summary:	BBClone - A PHP based Web Counter on Steroids
 Summary(pl):	BBClone - oparty na PHP licznik stron WWW
 Name:		bbclone
 Version:	0.4.7
-Release:	1
+Release:	2
 License:	GPL 2
 Group:		Applications/WWW
 Source0:	http://www.bbclone.de/download.php?get=%{name}-%{version}.tar.gz
@@ -12,10 +12,10 @@ Source2:	%{name}.txt
 Patch0:		%{name}-security.patch
 URL:		http://www.bbclone.de/
 BuildRequires:	rpmbuild(macros) >= 1.226
-Requires:	webserver = apache
 Requires:	apache(mod_access)
 Requires:	apache(mod_alias)
-Requires:	php >= 3:4.1.0
+Requires:	webserver = apache
+Requires:	webserver(php) >= 4.1.0
 Conflicts:	apache1 < 1.3.33-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
