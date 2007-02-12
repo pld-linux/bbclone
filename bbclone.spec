@@ -1,5 +1,5 @@
 Summary:	BBClone - A PHP based Web Counter on Steroids
-Summary(pl):	BBClone - oparty na PHP licznik stron WWW
+Summary(pl.UTF-8):   BBClone - oparty na PHP licznik stron WWW
 Name:		bbclone
 Version:	0.4.7
 Release:	2
@@ -48,30 +48,30 @@ For each visitor, BBClone can display:
 * ranking of the most frequent countries, referrers, OS, browsers,
 robots, page views and hostnames.
 
-%description -l pl
-BBclone to licznik WWW napisany w PHP. Udostêpnia szczegó³owy widok
-odwiedzaj±cych stronê WWW wy¶wietlaj±c n-tych ostatnich u¿ytkowników
-(oraz dostarczone przez nich dane, takie jak adres IP, przegl±darkê
-itd.), którzy odwiedzili stronê, a nie tylko pokazuj±c liczbê go¶ci.
-Jest to bardzo przydatne dla webmasterów, którzy chc± widzieæ, kto
-odwiedza ich strony, jakich przegl±darek u¿ywaj±, sk±d pochodz± itp.
+%description -l pl.UTF-8
+BBclone to licznik WWW napisany w PHP. UdostÄ™pnia szczegÃ³Å‚owy widok
+odwiedzajÄ…cych stronÄ™ WWW wyÅ›wietlajÄ…c n-tych ostatnich uÅ¼ytkownikÃ³w
+(oraz dostarczone przez nich dane, takie jak adres IP, przeglÄ…darkÄ™
+itd.), ktÃ³rzy odwiedzili stronÄ™, a nie tylko pokazujÄ…c liczbÄ™ goÅ›ci.
+Jest to bardzo przydatne dla webmasterÃ³w, ktÃ³rzy chcÄ… widzieÄ‡, kto
+odwiedza ich strony, jakich przeglÄ…darek uÅ¼ywajÄ…, skÄ…d pochodzÄ… itp.
 
-Dla ka¿dego odwiedzaj±cego BBClone mo¿e wy¶wietlaæ:
+Dla kaÅ¼dego odwiedzajÄ…cego BBClone moÅ¼e wyÅ›wietlaÄ‡:
 - adres IP,
-- nazwê hosta,
+- nazwÄ™ hosta,
 - system operacyjny,
 - roboty,
-- przegl±darkê,
-- URL odniesienia (sk±d wyst±pi³o odwo³anie),
-- datê odwiedzin,
-- czas potrzebny na za³adowanie strony,
-- numer go¶cia,
-- odwiedzone strony w kolejno¶ci ich ogl±dania,
-- ostatni± odwiedzon± stronê,
-- zapytanie silnika wyszukuj±cego, które zaprowadzi³o na stronê (je¶li
-  dotyczy ¿±dania),
-- ranking najczê¶ciej wystêpuj±cych krajów, odniesieñ, systemów
-  operacyjnych, przegl±darek, robotów, stron i nazw hostów.
+- przeglÄ…darkÄ™,
+- URL odniesienia (skÄ…d wystÄ…piÅ‚o odwoÅ‚anie),
+- datÄ™ odwiedzin,
+- czas potrzebny na zaÅ‚adowanie strony,
+- numer goÅ›cia,
+- odwiedzone strony w kolejnoÅ›ci ich oglÄ…dania,
+- ostatniÄ… odwiedzonÄ… stronÄ™,
+- zapytanie silnika wyszukujÄ…cego, ktÃ³re zaprowadziÅ‚o na stronÄ™ (jeÅ›li
+  dotyczy Å¼Ä…dania),
+- ranking najczÄ™Å›ciej wystÄ™pujÄ…cych krajÃ³w, odniesieÅ„, systemÃ³w
+  operacyjnych, przeglÄ…darek, robotÃ³w, stron i nazw hostÃ³w.
 
 %prep
 %setup -q -n %{name}
