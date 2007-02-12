@@ -1,5 +1,5 @@
 Summary:	BBClone - A PHP based Web Counter on Steroids
-Summary(pl.UTF-8):   BBClone - oparty na PHP licznik stron WWW
+Summary(pl.UTF-8):	BBClone - oparty na PHP licznik stron WWW
 Name:		bbclone
 Version:	0.4.7
 Release:	2
