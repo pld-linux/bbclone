@@ -11,6 +11,7 @@ Source1:	%{name}.conf
 Source2:	%{name}.txt
 Patch0:		%{name}-security.patch
 URL:		http://www.bbclone.de/
+BuildRequires:	migrate-to-webapps
 BuildRequires:	rpmbuild(macros) >= 1.226
 Requires:	apache(mod_access)
 Requires:	apache(mod_alias)
